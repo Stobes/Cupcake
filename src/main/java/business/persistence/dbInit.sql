@@ -3,9 +3,9 @@
     If so, please substitute `startcode` with whatever your project is called.
  */
 
-CREATE DATABASE  IF NOT EXISTS `startcode`;
+CREATE DATABASE  IF NOT EXISTS `Cupcake`;
 
-USE `startcode`;
+USE `Cupcake`;
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (

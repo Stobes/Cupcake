@@ -22,9 +22,12 @@
         This header is inspired by this bootstrap
         example: https://getbootstrap.com/docs/5.0/examples/pricing/
     -->
+    <div id="header" class="container" style="min-height: 20vh;">
+        <img src="${pageContext.request.contextPath}/images/banner.png" class="img-fluid mb-4"/>
+    </div>
+
 <header class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-white border-bottom shadow-sm">
     <div class="h5 my-0 me-md-auto fw-normal">
-        <p>Demo Project for DAT 2. semester</p>
         <p style="font-size: larger">
             <jsp:invoke fragment="header"/>
         </p>
