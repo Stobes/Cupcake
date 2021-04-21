@@ -30,23 +30,14 @@
                                     <c:forEach var="bottom" items="${applicationScope.bottomMap}">
                                         <option value="${bottom.key}">${bottom.value.description}</option>
                                     </c:forEach>
-
-
-
                                 </select>
 
                                 <label for="topping">Vælg en topping:</label>
 
                                 <select name="topping" id="topping">
-                                    <option value="Chocolate">Chocolate</option>
-                                    <option value="Blueberry">Blueberry</option>
-                                    <option value="Raspberry">Raspberry</option>
-                                    <option value="Crispy">Crispy</option>
-                                    <option value="Strawberry">Strawberry</option>
-                                    <option value="Rum/Raisin">Rum/Raisin</option>
-                                    <option value="Orange">Orange</option>
-                                    <option value="Lemon">Lemon</option>
-                                    <option value="Bluecheese">Blue cheese</option>
+                                    <c:forEach var="topping" items="${applicationScope.toppingMap}">
+                                        <option value="${topping.key}">${topping.value.description}</option>
+                                    </c:forEach>
                                 </select>
 <%--                                    <div class="form-group">--%>
                                     <label for="quantity">Vælg et antal:</label>

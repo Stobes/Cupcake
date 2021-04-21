@@ -57,10 +57,18 @@ public class FrontController extends HttpServlet
             e.printStackTrace();
         }
         getServletContext().setAttribute("bottomMap",bottomMap);
+
+        ToppingFacade toppingFacade = new ToppingFacade(database);
+        try {
+            toppingMap = toppingFacade.getToppings();
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+        getServletContext().setAttribute("toppingMap",toppingMap);
     }
 
-    ToppingFacade toppingFacade = new ToppingFacade(database);
-    toppingMap = toppingFacade.getToppings();
+
+
 
     protected void processRequest(
             HttpServletRequest request,
