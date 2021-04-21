@@ -6,6 +6,7 @@ import business.exceptions.UserException;
 import business.entities.User;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class BottomMapper
 {
@@ -16,22 +17,26 @@ public class BottomMapper
         this.database = database;
     }
 
-    public void createBottom(Bottom bottom) throws UserException
+    //Her blev der også lavet noget.
+
+    public HashMap<Integer,Bottom> getBottoms() throws UserException
     {
+        HashMap<Integer, Bottom> bottomMap = new HashMap<>();
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO topping (bottom_discription, price) VALUES (?, ?)";
+            String sql = "SELECT * FROM bottom";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, bottom.getDiscription());
-                ps.setInt(2, bottom.getPrice());
-
-                ps.executeUpdate();
-                ResultSet ids = ps.getGeneratedKeys();
-                ids.next();
-                int id = ids.getInt(1);
-                bottom.setId(id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
+                {
+                    int id = rs.getInt("bottom_id");
+                    String name = rs.getString("bottom_description");
+                    int price = rs.getInt("price");
+                    bottomMap.put(id,new Bottom(id,name,price));
+                }
+                return bottomMap;
             }
             catch (SQLException ex)
             {

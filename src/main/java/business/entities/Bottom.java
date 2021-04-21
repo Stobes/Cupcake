@@ -2,13 +2,14 @@ package business.entities;
 
 public class Bottom {
     private int id;
-    private String discription;
+    private String description;
     private int price;
 
 
-    public Bottom(String discription, int price) {
-        this.discription = discription;
+    public Bottom(int id, String description, int price) {
+        this.description = description;
         this.price = price;
+        this.id = id;
     }
 
     public int getId() {
@@ -19,12 +20,12 @@ public class Bottom {
         this.id = id;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPrice() {

@@ -74,10 +74,10 @@ CREATE TABLE IF NOT EXISTS `cupcake`.`bottom`
 CREATE TABLE IF NOT EXISTS `cupcake`.`topping`
 (
     `topping_id`          INT         NOT NULL AUTO_INCREMENT,
-    `topping_discription` VARCHAR(45) NOT NULL,
+    `topping_description` VARCHAR(45) NOT NULL,
     `price`               INT         NOT NULL,
     PRIMARY KEY (`topping_id`),
-    UNIQUE INDEX `topping_discription_UNIQUE` (`topping_discription` ASC) VISIBLE
+    UNIQUE INDEX `topping_description_UNIQUE` (`topping_description` ASC) VISIBLE
 )
     ENGINE = InnoDB;
 
@@ -123,7 +123,7 @@ VALUES (1, 'Chocolate', 5),
        (3, 'Raspberry', 5),
        (4, 'Crispy', 6),
        (5, 'Strawberry', 6),
-       (6, 'Rum/Rasin', 7),
+       (6, 'Rum/Raisin', 7),
        (7, 'Orange', 8),
        (8, 'Lemon', 8),
        (9, 'Blue Cheese', 9);

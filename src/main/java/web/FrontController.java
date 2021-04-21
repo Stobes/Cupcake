@@ -1,11 +1,16 @@
 package web;
 
+import business.entities.Bottom;
+import business.entities.Topping;
 import business.exceptions.UserException;
 import business.persistence.Database;
+import business.services.BottomFacade;
+import business.services.ToppingFacade;
 import web.commands.*;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,12 +23,14 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet
 {
     private final static String USER = "root";
-
-    private final static String PASSWORD = "254736#47697234";
+    private final static String PASSWORD = "290696-1329Seb";
     private final static String URL = "jdbc:mysql://localhost:3306/Cupcake?serverTimezone=CET";
 
 
     public static Database database;
+
+    public static HashMap<Integer, Bottom> bottomMap;
+    public static HashMap<Integer, Topping> toppingMap;
 
     public void init() throws ServletException
     {
@@ -42,7 +49,18 @@ public class FrontController extends HttpServlet
 
         // Initialize whatever global datastructures needed here:
 
+        //Blev lavet til bottom
+        BottomFacade bottomFacade = new BottomFacade(database);
+        try {
+            bottomMap = bottomFacade.getBottoms();
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+        getServletContext().setAttribute("bottomMap",bottomMap);
     }
+
+    ToppingFacade toppingFacade = new ToppingFacade(database);
+    toppingMap = toppingFacade.getToppings();
 
     protected void processRequest(
             HttpServletRequest request,

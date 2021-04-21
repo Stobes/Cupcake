@@ -4,6 +4,9 @@
 
 <t:genericpage>
 
+
+
+
     <jsp:attribute name="header">
          Olsker Cupcakes
     </jsp:attribute>
@@ -24,11 +27,11 @@
                                 <label for="bottom">Vælg en bund:</label>
 
                                 <select name="bottom" id="bottom">
-                                    <option value="Chocolate">Chocolate</option>
-                                    <option value="Vanilla">Vanilla</option>
-                                    <option value="Nutmeg">Nutmeg</option>
-                                    <option value="Pistacio">Pistacio</option>
-                                    <option value="Almond">Almond</option>
+                                    <c:forEach var="bottom" items="${applicationScope.bottomMap}">
+                                        <option value="${bottom.key}">${bottom.value.description}</option>
+                                    </c:forEach>
+
+
 
                                 </select>
 

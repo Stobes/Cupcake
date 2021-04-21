@@ -5,9 +5,12 @@ import business.persistence.BottomMapper;
 import business.persistence.Database;
 import business.exceptions.UserException;
 
+import java.util.HashMap;
+
 
 public class BottomFacade
 {
+    //Her blev der lavet noget til jsp.
     BottomMapper bottomMapper;
 
     public BottomFacade(Database database)
@@ -16,10 +19,7 @@ public class BottomFacade
     }
 
 
-    public Bottom createBottom(String discription, int price) throws UserException
-    {
-        Bottom bottom = new Bottom(discription, price);
-        bottomMapper.createBottom(bottom);
-        return bottom;
+    public HashMap<Integer,Bottom> getBottoms() throws UserException{
+        return bottomMapper.getBottoms();
     }
 }

@@ -3,12 +3,13 @@ package business.entities;
 public class Topping {
 
     private int id;
-    private String discription;
+    private String description;
     private int price;
 
-    public Topping(String discription, int price) {
-        this.discription = discription;
+    public Topping(int id,String description, int price) {
+        this.description = description;
         this.price = price;
+        this.id = id;
     }
 
     public int getId() {
@@ -19,12 +20,12 @@ public class Topping {
         this.id = id;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPrice() {

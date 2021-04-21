@@ -1,10 +1,10 @@
 package business.persistence;
-
 import business.entities.Topping;
 import business.exceptions.UserException;
-import business.entities.User;
+
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class ToppingMapper
 {
@@ -15,22 +15,26 @@ public class ToppingMapper
         this.database = database;
     }
 
-    public void createTopping(Topping topping) throws UserException
+    //Her blev der også lavet noget.
+
+    public HashMap<Integer,Topping> getToppings() throws UserException
     {
+        HashMap<Integer, Topping> toppingMap = new HashMap<>();
         try (Connection connection = database.connect())
         {
-            String sql = "INSERT INTO topping (topping_discription, price) VALUES (?, ?)";
+            String sql = "SELECT * FROM topping";
 
             try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS))
             {
-                ps.setString(1, topping.getDiscription());
-                ps.setInt(2, topping.getPrice());
-
-                ps.executeUpdate();
-                ResultSet ids = ps.getGeneratedKeys();
-                ids.next();
-                int id = ids.getInt(1);
-                topping.setId(id);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next())
+                {
+                    int id = rs.getInt("topping_id");
+                    String name = rs.getString("topping_description");
+                    int price = rs.getInt("price");
+                    toppingMap.put(id,new Topping(id,name,price));
+                }
+                return toppingMap;
             }
             catch (SQLException ex)
             {
