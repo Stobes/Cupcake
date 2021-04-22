@@ -12,11 +12,11 @@
         <div class="background-div">
             <div class="py-3 me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
                 <h1>Velkommen ${sessionScope.email} </h1>
-                <p> Du er nu logget ind som ${sessionScope.role}.</p>
+                <p> Du er nu logget ind som ${sessionScope.role}</p>
             </div>
             <div class="bg-light shadow-sm mx-auto" style="width: 80%; min-height: 300px; height: 400px; border-radius: 21px 21px 21px 21px;">
                 <div style="margin-top: 3em;margin-bottom: 3em;">
-                    <div class="container">
+                    <div class="container align-content-center">
                         <form method="post" action="${pageContext.request.contextPath}/fc/orderpage">
                             <span class="form-group">
                                 <br>

@@ -14,7 +14,7 @@
         <div class="background-div">
             <div class="py-3 me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
                 <h2 class="display-5">Velkommen ${sessionScope.email} </h2>
-                <p class="lead">Du er nu logget ind som ${sessionScope.role}.</p>
+                <p class="lead">Du er nu logget ind som ${sessionScope.role}</p>
             </div>
             <div class="bg-light mx-auto mb-4" style="width: 80%; height: 400px; min-height: 300px; border-radius: 21px 21px 21px 21px;">
                 <div style="margin-top: 3em;margin-bottom: 3em;">
