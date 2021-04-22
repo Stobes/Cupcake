@@ -4,31 +4,30 @@
 
 <t:genericpage>
     <jsp:attribute name="header">
-         Demo Page for Employee Roles
+         Employee page
     </jsp:attribute>
     <jsp:attribute name="footer">
     </jsp:attribute>
     <jsp:body>
         <div class="background-div">
-            <div class="my-3 py-3 me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
-                <h1>Hello ${sessionScope.email} </h1>
-                <p> You are now logged in as a EMPLOYEE of our wonderful site.</p>
+            <div class="py-3 me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+                <h1>Velkommen ${sessionScope.email} </h1>
+                <p> Du er nu logget ind som ${sessionScope.role}.</p>
             </div>
-            <div class="bg-light shadow-sm mx-auto" style="width: 75%; height: 300px; border-radius: 21px 21px 0 0;">
+            <div class="bg-light shadow-sm mx-auto" style="width: 80%; min-height: 300px; height: 400px; border-radius: 21px 21px 21px 21px;">
                 <div style="margin-top: 3em;margin-bottom: 3em;">
                     <div class="container">
                         <form method="post" action="${pageContext.request.contextPath}/fc/orderpage">
-                            <div class="form-group">
+                            <span class="form-group">
                                 <br>
                                 <br>
                                 <h1>Overfør et beløb til kunde konto.</h1>
                                 <br>
-                                <a> bla bla lorem upsim</a>
                                 <div class="form-group">
                                     <label for="balance">Indtast et beløb</label>
-                                    <input class="form-control" id="balance" name="balance" type="text" placeholder="15kr"/>
+                                    <input class="form-control" id="balance" type="text" placeholder="Indtast beløb som skal indsættes på konto"/>
                                     <br>
-                                    <label for="employee">Vælge en kunde-konto:</label>
+                                    <label for="employee">Vælg en kunde-konto:</label>
                                     <select name="employee" id="employee">
                                         <c:forEach var="employee" items="${applicationScope.employeeMap}">
                                             <option value="${employee.key}">${employee.value.email}</option>
@@ -38,10 +37,12 @@
                                 </div>
 
 
-                            </div>
+                            </span>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="mx-auto mb-4" style="width: 80%; height: 100px; border-radius: 21px 21px 21px 21px; background-color: rebeccapurple">
             </div>
         </div>
 

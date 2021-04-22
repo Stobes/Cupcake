@@ -21,7 +21,7 @@
 <body>
     <header style="min-height: 20vh; ">
         <img src="${pageContext.request.contextPath}/images/banner.png" class="image-full-width"/>
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 mb-4 bg-light border-bottom shadow-sm">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 pb-0 px-md-4 bg-light border-bottom shadow-sm">
             <div class="h5 my-0 me-md-auto fw-normal">
                 <p style="font-size: larger">
                     <jsp:invoke fragment="header"/>
@@ -31,8 +31,16 @@
                 <c:if test="${addHomeLink == null }">
                     <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Hjem</a>
                 </c:if>
-                <a class="p-2 text-dark" href="#">Ordre</a>
-                <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/customerpage">Konto</a>
+                <a class="p-2 text-dark" href="#">Ordrer</a>
+                <c:if test="${sessionScope.role == null}">
+                    <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/loginpage">Konto</a>
+                </c:if>
+                <c:if test="${sessionScope.role == 'customer'}">
+                    <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/customerpage">Konto</a>
+                </c:if>
+                <c:if test="${sessionScope.role == 'employee'}">
+                    <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/employeepage">Konto</a>
+                </c:if>
             </nav>
 
             <div>
@@ -66,9 +74,6 @@
 
         <!-- Footer -->
         <div class="footer">
-            <br>
-            <br>
-            <hr>
             <footer class="container py-5">
                 <div class="row">
                     <div class="col-12 col-md">

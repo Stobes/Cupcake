@@ -1,7 +1,6 @@
 package business.persistence;
 
 import business.entities.Employee;
-import business.entities.Topping;
 import business.exceptions.UserException;
 
 import java.sql.*;
@@ -16,7 +15,7 @@ public class EmployeeMapper {
         this.database = database;
     }
 
-    //Her blev der også lavet noget.
+    //Hashmaps til employees. Henter data fra databasens user tabel, og pakker det ind i et hashmap.
 
     public HashMap<Integer, Employee> getEmployee() throws UserException
     {
