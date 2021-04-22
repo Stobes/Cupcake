@@ -1,9 +1,11 @@
 package business.persistence;
 
+import business.entities.Bottom;
 import business.exceptions.UserException;
 import business.entities.User;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class UserMapper
 {

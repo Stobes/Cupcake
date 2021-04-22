@@ -1,11 +1,15 @@
 package web;
 
 import business.entities.Bottom;
+import business.entities.Employee;
 import business.entities.Topping;
+import business.entities.User;
 import business.exceptions.UserException;
 import business.persistence.Database;
 import business.services.BottomFacade;
+import business.services.EmployeeFacade;
 import business.services.ToppingFacade;
+import business.services.UserFacade;
 import web.commands.*;
 
 import java.io.IOException;
@@ -23,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet
 {
     private final static String USER = "root";
-    private final static String PASSWORD = "254736#47697234";
+    private final static String PASSWORD = "Invigorat4";
     private final static String URL = "jdbc:mysql://localhost:3306/Cupcake?serverTimezone=CET";
 
 
@@ -31,6 +35,8 @@ public class FrontController extends HttpServlet
 
     public static HashMap<Integer, Bottom> bottomMap;
     public static HashMap<Integer, Topping> toppingMap;
+    public static HashMap<Integer, Employee> employeeMap;
+
 
     public void init() throws ServletException
     {
@@ -65,6 +71,14 @@ public class FrontController extends HttpServlet
             e.printStackTrace();
         }
         getServletContext().setAttribute("toppingMap",toppingMap);
+
+        EmployeeFacade employeeFacade = new EmployeeFacade(database);
+        try {
+            employeeMap = employeeFacade.getEmployee();
+        } catch (UserException e) {
+            e.printStackTrace();
+        }
+        getServletContext().setAttribute("employeeMap",employeeMap);
     }
 
 

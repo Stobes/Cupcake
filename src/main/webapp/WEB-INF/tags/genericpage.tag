@@ -29,15 +29,13 @@
             </div>
             <nav class="my-2 my-md-0 me-md-3">
                 <c:if test="${addHomeLink == null }">
-                    <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Home</a>
+                    <a class="p-2 text-dark" href="<%=request.getContextPath()%>">Hjem</a>
                 </c:if>
-                <a class="p-2 text-dark" href="#">Orders</a>
-                <a class="p-2 text-dark" href="#">Profile</a>
-                <a class="p-2 text-dark" href="#">About</a>
+                <a class="p-2 text-dark" href="#">Ordre</a>
+                <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/customerpage">Konto</a>
             </nav>
 
             <div>
-
                 <c:if test="${sessionScope.user != null }">
                     ${sessionScope.user.email}
                 </c:if>
@@ -61,8 +59,8 @@
             </c:if>
         </div>
     </header>
-    <div class="container-fluid">
-        <div id="body" class="container" style="min-height: 20vh;">
+    <div>
+        <div class="w-100" style="background-color: rebeccapurple">
             <jsp:doBody/>
         </div>
 

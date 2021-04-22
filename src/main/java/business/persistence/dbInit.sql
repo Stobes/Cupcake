@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `cupcake`.`users`
     `email`    VARCHAR(90) NOT NULL,
     `password` VARCHAR(45) NOT NULL,
     `role`     VARCHAR(20) NOT NULL DEFAULT 'customer',
-    `balance`  DECIMAL     NULL,
+    `balance`  INT         NOT NULL DEFAULT 100,
     PRIMARY KEY (`id`),
     UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE
 )

@@ -1,9 +1,13 @@
 package business.services;
 
+import business.entities.Bottom;
 import business.entities.User;
+import business.persistence.BottomMapper;
 import business.persistence.Database;
 import business.persistence.UserMapper;
 import business.exceptions.UserException;
+
+import java.util.HashMap;
 
 public class UserFacade
 {
