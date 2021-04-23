@@ -19,7 +19,7 @@ public class CartCommand extends CommandUnprotectedPage {
         int quantity;
 
         try {
-            topId = Integer.parseInt(request.getParameter("top"));
+            topId = Integer.parseInt(request.getParameter("topping"));
             bottomId = Integer.parseInt(request.getParameter("bottom"));
             quantity = Integer.parseInt(request.getParameter("quantity"));
         } catch (NumberFormatException e) {

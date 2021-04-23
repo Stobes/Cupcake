@@ -4,7 +4,6 @@
 
 
 <head>
-    <script type="text/javascript" src="static/js/Store.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/css/styles.css">
@@ -31,7 +30,7 @@
             <div class="bg-light mx-auto mb-4" style="width: 80%; height: 400px; min-height: 300px; border-radius: 21px 21px 21px 21px;">
                 <div style="margin-top: 3em;margin-bottom: 3em;">
                     <div class="container">
-                        <form method="post" action="${pageContext.request.contextPath}/fc/orderpage">
+                        <form method="post" action="${pageContext.request.contextPath}/fc/cartpage">
                             <div class="form-group">
                                 <br>
                                 <br>
