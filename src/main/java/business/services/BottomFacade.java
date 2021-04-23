@@ -1,11 +1,10 @@
 package business.services;
-
 import business.entities.Bottom;
 import business.persistence.BottomMapper;
 import business.persistence.Database;
 import business.exceptions.UserException;
 
-import java.util.HashMap;
+import java.util.List;
 
 
 public class BottomFacade
@@ -18,8 +17,7 @@ public class BottomFacade
         bottomMapper = new BottomMapper(database);
     }
 
-
-    public HashMap<Integer,Bottom> getBottoms() throws UserException{
+    public List<Bottom> getBottoms() throws UserException{
         return bottomMapper.getBottoms();
     }
 }

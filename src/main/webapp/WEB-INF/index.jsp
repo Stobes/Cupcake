@@ -27,46 +27,70 @@
                 <h2 class="display-5">Velkommen til Olsker Cupcakes</h2>
                 <p class="lead">Øens bedste cupcakes. Vælg og bestil her:</p>
             </div>
-            <div class="bg-light mx-auto mb-4" style="width: 80%; height: 400px; min-height: 300px; border-radius: 21px 21px 21px 21px;">
+            <div class="bg-light mx-auto mb-4"
+                 style="width: 80%; height: 400px; min-height: 300px; border-radius: 21px 21px 21px 21px;">
                 <div style="margin-top: 3em;margin-bottom: 3em;">
                     <div class="container">
-                        <form method="post" action="${pageContext.request.contextPath}/fc/cartpage">
-                            <div class="form-group">
-                                <br>
-                                <br>
-                                Øens bedste cupcakes. Vælg og bestil her:
-                                <br>
-                                <br>
-                                <label for="bottom">Vælg en bund:</label>
-                                <select name="bottom" id="bottom">
-                                    <c:forEach var="bottom" items="${applicationScope.bottomMap}">
-                                        <option value="${bottom.key}" value="${bottom.key}">${bottom.value.description} - ${bottom.value.price} kr.</option>
-                                    </c:forEach>
-                                </select>
-
-                                <label for="topping">Vælg en topping:</label>
-                                <select name="topping" id="topping">
-                                    <c:forEach var="topping" items="${applicationScope.toppingMap}">
-                                        <option value="${topping.key}" value="${topping.key}" >${topping.value.description} - ${topping.value.price} kr.</option>
-                                    </c:forEach>
-                                </select>
-
-                                <label for="quantity">Vælg et antal:</label>
-                                <input type="number" id="quantity" name="quantity" min="1" max="10" placeholder="1">
-                                <c:if test="${requestScope.error != null}">
-                                    <p style="color: #2c2c2c;">
-                                            ${requestScope.error}
-                                    </p>
-                                </c:if>
-
-                                <button type="submit" class="btn-primary">Tilføj Til kurv</button>
-                                <button type="submit" class="btn-primary">Gå til kurv</button>
+                        <form method="post" action="${pageContext.request.contextPath}/fc/cartcommand">
+                            <div class="row">
+                                <div class="col">
+                                    <br>
+                                    <br>
+                                    Øens bedste cupcakes. Vælg og bestil her:
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="form-check-label" for="bottom">Vælg en bund:</label>
+                                        <select class="form-control" name="bottom" id="bottom">
+                                            <c:forEach var="bottom" items="${applicationScope.bottomList}">
+                                                <option value="${bottom.id}">${bottom.description} - ${bottom.price} kr.</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label class="form-check-label" for="topping">Vælg en topping:</label>
+                                        <select class="form-control" name="topping" id="topping">
+                                            <c:forEach var="topping" items="${applicationScope.bottomList}">
+                                                <option value="${topping.id}">${topping.description} - ${topping.price} kr.</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="quantity">Vælg et antal:</label>
+                                        <select class="form-control" name="quantity" id="quantity">
+                                            <c:forEach var="quantity" begin="1" end="5">
+                                                <option value="${quantity}">${quantity}</option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+                            <c:if test="${requestScope.error != null}">
+                                <p style="color: #2c2c2c;">
+                                        ${requestScope.error}
+                                </p>
+                            </c:if>
+                            <br/>
+                            <button type="submit" class="btn btn-primary">Tilføj Til kurv</button>
+
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="mx-auto mb-4" style="width: 80%; height: 100px; border-radius: 21px 21px 21px 21px; background-color: rebeccapurple">
+            <div class="mx-auto mb-4"
+                 style="width: 80%; height: 100px; border-radius: 21px 21px 21px 21px; background-color: rebeccapurple">
             </div>
         </div>
 

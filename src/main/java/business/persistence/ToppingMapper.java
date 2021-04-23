@@ -2,7 +2,9 @@ package business.persistence;
 import business.entities.Topping;
 import business.exceptions.UserException;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ToppingMapper
 {
@@ -13,11 +15,10 @@ public class ToppingMapper
         this.database = database;
     }
 
-    //Her blev der også lavet noget.
 
-    public HashMap<Integer,Topping> getToppings() throws UserException
+    public List<Topping> getToppings() throws UserException
     {
-        HashMap<Integer, Topping> toppingMap = new HashMap<>();
+        List<Topping> toppingList = new ArrayList<>();
         try (Connection connection = database.connect())
         {
             String sql = "SELECT * FROM topping";
@@ -30,9 +31,9 @@ public class ToppingMapper
                     int id = rs.getInt("topping_id");
                     String name = rs.getString("topping_description");
                     int price = rs.getInt("price");
-                    toppingMap.put(id,new Topping(id,name,price));
+                    toppingList.add(new Topping(id,name,price));
                 }
-                return toppingMap;
+                return toppingList;
             }
             catch (SQLException ex)
             {

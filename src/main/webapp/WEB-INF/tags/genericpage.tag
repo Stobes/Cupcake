@@ -41,7 +41,11 @@
                 <c:if test="${sessionScope.role == 'employee'}">
                     <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/employeepage">Konto</a>
                 </c:if>
-                <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/cartpage">Kurv</a>
+                <c:set var="cartItemCount" value="${sessionScope.cart.numberOfItems}"></c:set>
+                <c:if test="${empty(basketItemCount)}">
+                    <c:set var="cartItemCount" value="0"></c:set>
+                </c:if>
+                <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/cartpage">Kurv (${cartItemCount}</a>
             </nav>
 
             <div>

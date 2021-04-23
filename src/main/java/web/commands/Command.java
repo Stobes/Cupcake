@@ -22,7 +22,8 @@ public abstract class Command
         commands = new HashMap<>();
         commands.put("index", new CommandUnprotectedPage("index"));
         commands.put("cartpage", new CommandUnprotectedPage("cartpage"));
-        commands.put("cartcommand", new CartCommand(""));
+        commands.put("cartcommand", new CartCommand("cartpage"));
+        commands.put("cartcommand_v2", new CartCommand_v2("cartpage"));
         commands.put("loginpage", new CommandUnprotectedPage("loginpage"));
         commands.put("logincommand", new LoginCommand(""));
         commands.put("logoutcommand", new LogoutCommand(""));

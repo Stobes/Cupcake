@@ -2,7 +2,7 @@ package business.entities;
 
 public class Bottom {
 
-    private int id;
+    private final int id;
     private String description;
     private int price;
 
@@ -17,9 +17,6 @@ public class Bottom {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getDescription() {
         return description;

@@ -15,6 +15,7 @@ import web.commands.*;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -33,8 +34,8 @@ public class FrontController extends HttpServlet
 
     public static Database database;
 
-    public static HashMap<Integer, Bottom> bottomMap;
-    public static HashMap<Integer, Topping> toppingMap;
+    public static List<Bottom> bottomList;
+    public static List<Topping> toppingList;
     public static HashMap<Integer, Employee> employeeMap;
 
 
@@ -58,19 +59,21 @@ public class FrontController extends HttpServlet
         //Blev lavet til bottom
         BottomFacade bottomFacade = new BottomFacade(database);
         try {
-            bottomMap = bottomFacade.getBottoms();
+            List<Bottom> bottomList = bottomFacade.getBottoms();
+            getServletContext().setAttribute("bottomList",bottomList);
         } catch (UserException e) {
             e.printStackTrace();
         }
-        getServletContext().setAttribute("bottomMap",bottomMap);
+
 
         ToppingFacade toppingFacade = new ToppingFacade(database);
         try {
-            toppingMap = toppingFacade.getToppings();
+            List<Topping> toppingList = toppingFacade.getToppings();
+            getServletContext().setAttribute("toppingList",toppingList);
         } catch (UserException e) {
             e.printStackTrace();
         }
-        getServletContext().setAttribute("toppingMap",toppingMap);
+
 
         EmployeeFacade employeeFacade = new EmployeeFacade(database);
         try {

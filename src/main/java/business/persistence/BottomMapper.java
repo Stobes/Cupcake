@@ -1,12 +1,13 @@
 package business.persistence;
-
 import business.entities.Bottom;
 import business.entities.Topping;
 import business.exceptions.UserException;
 import business.entities.User;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class BottomMapper
 {
@@ -17,11 +18,10 @@ public class BottomMapper
         this.database = database;
     }
 
-    //Her blev der også lavet noget.
 
-    public HashMap<Integer,Bottom> getBottoms() throws UserException
+    public List<Bottom> getBottoms() throws UserException
     {
-        HashMap<Integer, Bottom> bottomMap = new HashMap<>();
+        List<Bottom> bottomList = new ArrayList<>();
         try (Connection connection = database.connect())
         {
             String sql = "SELECT * FROM bottom";
@@ -34,9 +34,9 @@ public class BottomMapper
                     int id = rs.getInt("bottom_id");
                     String name = rs.getString("bottom_description");
                     int price = rs.getInt("price");
-                    bottomMap.put(id,new Bottom(id,name,price));
+                    bottomList.add(new Bottom(id,name,price));
                 }
-                return bottomMap;
+                return bottomList;
             }
             catch (SQLException ex)
             {

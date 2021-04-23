@@ -1,8 +1,10 @@
 package business.entities;
 
+import java.util.Objects;
+
 public class Topping {
 
-    private int id;
+    private final int id;
     private String description;
     private int price;
 
@@ -14,10 +16,6 @@ public class Topping {
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getDescription() {

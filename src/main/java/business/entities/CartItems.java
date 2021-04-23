@@ -2,28 +2,33 @@ package business.entities;
 
 public class CartItems {
 
-    private Topping top;
+    private Topping topping;
     private Bottom bottom;
     private int quantity;
 
-    public CartItems(Topping top, Bottom bottom, int quantity) {
-        this.top = top;
+    public CartItems(Topping topping, Bottom bottom, int quantity) {
+        this.topping = topping;
         this.bottom = bottom;
         this.quantity = quantity;
     }
 
     public double getPrice() {
-        return (top.getPrice() + bottom.getPrice()) * quantity;
+        return (topping.getPrice() + bottom.getPrice()) * quantity;
     }
 
-    public Topping getTop() { return top; }
+    public Topping getTop() { return topping; }
 
-    public void setTop() {this.top = top; }
+    public void setTop() {this.topping = topping; }
 
     public Bottom getBottom() { return bottom; }
 
     public void setBottom(Bottom bottom) { this.bottom = bottom; }
 
+    public int getQuantity() {
+        return quantity;
+    }
 
-
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
