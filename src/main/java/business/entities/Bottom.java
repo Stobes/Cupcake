@@ -1,6 +1,7 @@
 package business.entities;
 
 public class Bottom {
+
     private int id;
     private String description;
     private int price;
