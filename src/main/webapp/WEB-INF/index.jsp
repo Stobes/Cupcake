@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label class="form-check-label" for="topping">Vælg en topping:</label>
                                         <select class="form-control" name="topping" id="topping">
-                                            <c:forEach var="topping" items="${applicationScope.bottomList}">
+                                            <c:forEach var="topping" items="${applicationScope.toppingList}">
                                                 <option value="${topping.id}">${topping.description} - ${topping.price} kr.</option>
                                             </c:forEach>
                                         </select>
