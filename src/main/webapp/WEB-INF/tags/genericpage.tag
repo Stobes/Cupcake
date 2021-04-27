@@ -45,7 +45,7 @@
                 <c:if test="${empty(basketItemCount)}">
                     <c:set var="cartItemCount" value="0"></c:set>
                 </c:if>
-                <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/cartpage">Kurv (${cartItemCount}</a>
+                <a class="p-2 text-dark" href="${pageContext.request.contextPath}/fc/cartpage">Kurv (${sessionScope.cart.numberOfItems})</a>
             </nav>
 
             <div>
